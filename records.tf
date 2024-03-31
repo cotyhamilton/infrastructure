@@ -2,59 +2,23 @@
 # cotyhamilton.com
 ####################################
 
-resource "digitalocean_record" "cotyhamilton_ns1" {
+resource "digitalocean_record" "cotyhamilton_ns" {
+  for_each = toset(local.do_name_servers)
+
   domain = digitalocean_domain.cotyhamilton.id
   type   = "NS"
   name   = "@"
-  value  = "ns1.digitalocean.com."
+  value  = "${each.value}."
   ttl    = 1800
 }
 
-resource "digitalocean_record" "cotyhamilton_ns2" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "NS"
-  name   = "@"
-  value  = "ns2.digitalocean.com."
-  ttl    = 1800
-}
+resource "digitalocean_record" "cotyhamilton_root" {
+  for_each = toset(local.github_ips)
 
-resource "digitalocean_record" "cotyhamilton_ns3" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "NS"
-  name   = "@"
-  value  = "ns3.digitalocean.com."
-  ttl    = 1800
-}
-
-resource "digitalocean_record" "cotyhamilton_root1" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "A"
   name   = "@"
-  value  = "185.199.108.153"
-  ttl    = 3600
-}
-
-resource "digitalocean_record" "cotyhamilton_root2" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "A"
-  name   = "@"
-  value  = "185.199.109.153"
-  ttl    = 3600
-}
-
-resource "digitalocean_record" "cotyhamilton_root3" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "A"
-  name   = "@"
-  value  = "185.199.110.153"
-  ttl    = 3600
-}
-
-resource "digitalocean_record" "cotyhamilton_root4" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "A"
-  name   = "@"
-  value  = "185.199.111.153"
+  value  = each.value
   ttl    = 3600
 }
 
