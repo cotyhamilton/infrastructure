@@ -1,9 +1,13 @@
 output "summary" {
   value = {
-    domains : [
-      digitalocean_domain.cotyhamilton.name,
-      digitalocean_domain.tiffanyygale.name,
-      digitalocean_domain.avafinance.name,
+    domains : data.digitalocean_domains.data.domains.*.name
+    droplets : [
+      for key, droplet in data.digitalocean_droplets.data.droplets :
+      {
+        name      = droplet.name
+        ip_public = droplet.ipv4_address
+        price     = droplet.price_monthly
+      }
     ]
   }
 }
