@@ -4,7 +4,7 @@ resource "digitalocean_droplet" "cotyhamilton" {
   size    = "s-2vcpu-4gb-intel"
   region  = "nyc1"
   ipv6    = true
-  backups = true
+  backups = false
   tags    = ["web"]
 }
 
