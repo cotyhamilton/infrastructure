@@ -9,7 +9,6 @@ resource "digitalocean_droplet" "k3s" {
   tags       = [digitalocean_tag.k3s.name]
 
   user_data = templatefile("${path.module}/user_data/k3s.yaml", {
-    VOLUME_NAME = digitalocean_volume.k3s.name,
     K3S_TOKEN   = random_password.k3s_token.result,
     K3S_DOMAIN  = "${var.k3s_subdomain}.${var.domain_name}"
   })

@@ -12,14 +12,14 @@ resource "digitalocean_record" "cotyhamilton_ns" {
   ttl    = 1800
 }
 
-resource "digitalocean_record" "cotyhamilton_root" {
+resource "digitalocean_record" "cotyhamilton_apex" {
   for_each = toset(local.github_ips)
 
   domain = digitalocean_domain.cotyhamilton.id
   type   = "A"
   name   = "@"
   value  = each.value
-  ttl    = 3600
+  ttl    = 60
 }
 
 resource "digitalocean_record" "cotyhamilton_www" {
@@ -27,14 +27,6 @@ resource "digitalocean_record" "cotyhamilton_www" {
   type   = "CNAME"
   name   = "www"
   value  = "cotyhamilton.github.io."
-  ttl    = 3600
-}
-
-resource "digitalocean_record" "cotyhamilton_wildcard" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "A"
-  name   = "*"
-  value  = digitalocean_droplet.cotyhamilton.ipv4_address
   ttl    = 60
 }
 

@@ -31,12 +31,6 @@ variable "droplet_size" {
   default     = "s-2vcpu-4gb"
 }
 
-variable "volume_name" {
-  type        = string
-  description = "DigitalOcean volume name"
-  default     = "k3s"
-}
-
 variable "k3s_subdomain" {
   type        = string
   description = "Subdomain to host the k3s server"
@@ -46,11 +40,11 @@ variable "k3s_subdomain" {
 variable "apps_subdomain" {
   type        = string
   description = "Subdomain to host apps on k3s"
-  default     = "*.x"
+  default     = "*"
 }
 
 variable "k3s_server_tag" {
   type        = string
   description = "Droplet tag"
-  default     = "k3s-server"
+  default     = "k3s"
 }

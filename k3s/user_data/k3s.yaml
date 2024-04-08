@@ -6,41 +6,6 @@
 
 runcmd:
   - |
-    echo "mounting volume '${VOLUME_NAME}' to /mnt/k3s and updating fstab"
-    mkdir -p /mnt/k3s
-    mount -o discard,defaults,noatime /dev/disk/by-id/scsi-0DO_Volume_${VOLUME_NAME} /mnt/k3s
-    echo '/dev/disk/by-id/scsi-0DO_Volume_${VOLUME_NAME} /mnt/k3s ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
-  - |
-    echo "installing docker"
-    curl -fsSL https://get.docker.com | sh
-  - |
-    #!/bin/bash
-
-    set -e
-
-    echo "set up image registry"
-
-    docker run -d -p 5000:5000 --restart=always --name registry registry:2
-
-    IMAGE_FOLDER="/mnt/k3s/images"
-
-    if [ ! -d "$IMAGE_FOLDER" ]; then
-      echo "Folder $IMAGE_FOLDER not found."
-      exit 1
-    fi
-
-    for file in "$IMAGE_FOLDER"/*; do
-      if [ -f "$file" ]; then
-        echo "$file"
-        docker load -i "$file"
-        image=$(basename "$${file%.tar.gz}" | tr '_' ':')
-        docker tag "$image" "127.0.0.1:5000/$image"
-        docker push --quiet "127.0.0.1:5000/$image"
-      fi
-    done
-
-    docker images
-  - |
     echo "installing k3s"
     curl -sfL https://get.k3s.io | K3S_TOKEN=${K3S_TOKEN} sh -s - server \
       --tls-san=${K3S_DOMAIN}
