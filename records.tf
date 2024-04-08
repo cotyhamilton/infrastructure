@@ -53,3 +53,35 @@ resource "digitalocean_record" "cotyhamilton_hn" {
   value  = "cname.vercel-dns.com."
   ttl    = 3600
 }
+
+####################################
+# tiffanyygale.com
+####################################
+
+resource "digitalocean_record" "tiffanyygale_ns" {
+  for_each = toset(local.do_name_servers)
+
+  domain = digitalocean_domain.tiffanyygale.id
+  type   = "NS"
+  name   = "@"
+  value  = "${each.value}."
+  ttl    = 1800
+}
+
+resource "digitalocean_record" "tiffanyygale_apex" {
+  for_each = toset(local.github_ips)
+
+  domain = digitalocean_domain.tiffanyygale.id
+  type   = "A"
+  name   = "@"
+  value  = each.value
+  ttl    = 60
+}
+
+resource "digitalocean_record" "tiffanyygale_www" {
+  domain = digitalocean_domain.tiffanyygale.id
+  type   = "CNAME"
+  name   = "www"
+  value  = "cotyhamilton.github.io."
+  ttl    = 60
+}
