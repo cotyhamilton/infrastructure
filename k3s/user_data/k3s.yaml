@@ -6,6 +6,18 @@
 
 runcmd:
   - |
-    echo "installing k3s"
-    curl -sfL https://get.k3s.io | K3S_TOKEN=${K3S_TOKEN} sh -s - server \
+    curl -sfL https://get.k3s.io | K3S_TOKEN=${K3S_TOKEN} INSTALL_K3S_CHANNEL=v1.29 sh -s - server \
+      --disable=traefik \
       --tls-san=${K3S_DOMAIN}
+
+    while ! test -d /var/lib/rancher/k3s/server/manifests; do
+      echo "Waiting for '/var/lib/rancher/k3s/server/manifests'"
+      sleep 1
+    done
+
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
+
+    kubectl -n kube-system create secret generic digitalocean --from-literal=access-token=${DO_TOKEN}
+
+    kubectl apply -f https://raw.githubusercontent.com/digitalocean/csi-digitalocean/master/deploy/kubernetes/releases/csi-digitalocean-v4.8.0/crds.yaml
+    kubectl apply -f https://raw.githubusercontent.com/digitalocean/csi-digitalocean/master/deploy/kubernetes/releases/csi-digitalocean-v4.8.0/driver.yaml

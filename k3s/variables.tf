@@ -1,3 +1,9 @@
+variable "do_token" {
+  type        = string
+  description = "DigitalOcean API token"
+  sensitive   = true
+}
+
 variable "project_name" {
   type        = string
   description = "Existing project name managed by DigitalOcean"
