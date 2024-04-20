@@ -30,12 +30,36 @@ resource "digitalocean_record" "cotyhamilton_www" {
   ttl    = 60
 }
 
+resource "digitalocean_record" "cotyhamilton_ip" {
+  domain = digitalocean_domain.cotyhamilton.id
+  type   = "CNAME"
+  name   = "_acme-challenge.ip"
+  value  = "8a170e024a51874bec1742f1._acme.deno.dev."
+  ttl    = 60
+}
+
+resource "digitalocean_record" "cotyhamilton_ip_a" {
+  domain = digitalocean_domain.cotyhamilton.id
+  type   = "A"
+  name   = "ip"
+  value  = "34.120.54.55"
+  ttl    = 60
+}
+
+resource "digitalocean_record" "cotyhamilton_ip_aaaa" {
+  domain = digitalocean_domain.cotyhamilton.id
+  type   = "AAAA"
+  name   = "ip"
+  value  = "2600:1901:0:6d85::"
+  ttl    = 60
+}
+
 resource "digitalocean_record" "cotyhamilton_fm" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "CNAME"
   name   = "frontendmentor"
   value  = "cotyhamilton.github.io."
-  ttl    = 3600
+  ttl    = 60
 }
 
 resource "digitalocean_record" "cotyhamilton_commands" {
@@ -43,7 +67,7 @@ resource "digitalocean_record" "cotyhamilton_commands" {
   type   = "CNAME"
   name   = "commands"
   value  = "cname.vercel-dns.com."
-  ttl    = 3600
+  ttl    = 60
 }
 
 resource "digitalocean_record" "cotyhamilton_hn" {
@@ -51,7 +75,7 @@ resource "digitalocean_record" "cotyhamilton_hn" {
   type   = "CNAME"
   name   = "hn"
   value  = "cname.vercel-dns.com."
-  ttl    = 3600
+  ttl    = 60
 }
 
 ####################################
