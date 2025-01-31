@@ -41,8 +41,8 @@ resource "digitalocean_record" "wildcard" {
 resource "digitalocean_record" "cotyhamilton_ip" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "CNAME"
-  name  = "_acme-challenge.ip"
-  value   = "4c8059995a87935a94c0b532._acme.deno.dev."
+  name   = "_acme-challenge.ip"
+  value  = "4c8059995a87935a94c0b532._acme.deno.dev."
   ttl    = 60
 }
 
@@ -65,8 +65,8 @@ resource "digitalocean_record" "cotyhamilton_ip_aaaa" {
 resource "digitalocean_record" "cotyhamilton_notes" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "CNAME"
-  name  = "_acme-challenge.notes"
-  value   = "723aada2078ce3cf5d72b9f9._acme.deno.dev."
+  name   = "_acme-challenge.notes"
+  value  = "723aada2078ce3cf5d72b9f9._acme.deno.dev."
   ttl    = 60
 }
 
