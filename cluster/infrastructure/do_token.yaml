@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+    DO_TOKEN: ENC[AES256_GCM,data:nDhyrYSPHTD0IJkvaq5ZKaUIZKRzqetiq1XLlMJf9xFUxj0R5XsDFdT+2aKaf0BTt5b2GXzJpjP6XlACgNdXiySdP2n3SChI5uVe3acIn6Z3eUJonhphDxqHso8XJT/s,iv:zdX4amGBlJJwAAapgVZ4+9xSopMkGuHh4ifYK2HKBI4=,tag:d4xpWCLocuZPIIrj49stwg==,type:str]
+kind: Secret
+metadata:
+    creationTimestamp: null
+    name: DO_TOKEN
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1r07u5mldcyxy5qjyj9ezaz9fq6lspspn2j7cg7yu3vms7tnukacqepaqyd
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBjYXR1TjV6MTFYVCtVMkow
+            VlhCeW02UERoRCtkQzVuWGpGV1ZIUU9tZ0g4CmJmRnFtL2ZyR3J3RGdTT2RVbUFB
+            TXB0bU92aDM0OHJPUmVkZjUzTXdFMTQKLS0tIFhxNEZZaGNxQnZlME5KTiswTExa
+            dUNBbHB0RUFuWVRZSDhaWHRpaFdHQXMKgqNU1rSdqg6kCfSukhc85aqfeT9KcbHB
+            DlUeFxgo8y7G+xm8syZwrFq+4wZHw7TfIAf1AvcuppNH9vieLJ2iSg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-01-31T04:41:49Z"
+    mac: ENC[AES256_GCM,data:SQsTX/7eYNtCfPIUiPqXXysaZ4mwSFF4CohDrh9VpZu50hyn2cdy//3PrXmTHRBrRrFMRX1Gi0QjgsNRXqjUsFIP/tNpnS86hub4IIoefIFLc5xjnSJDSkDACTYI0SZNG264wxzc4TBmn+SwAs9anNcMNSyLAH2GIaj5g11B9rA=,iv:YGdtUYh20RNv4Da/iDm6bF4mEhe71OSvZEp+Unx/THY=,tag:ZbqigvQMVs71GWhcNwTSgg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.3
