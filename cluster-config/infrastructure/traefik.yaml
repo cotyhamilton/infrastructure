@@ -36,16 +36,14 @@ spec:
   upgrade:
     remediation:
       retries: 3
-  test:
-    enable: true
   values:
     service:
       annotations:
         service.beta.kubernetes.io/do-loadbalancer-certificate-id: 70b7bc2a-0a0c-43d8-af64-c0739c4b3d81
-        service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
-        service.beta.kubernetes.io/do-loadbalancer-http-ports: "80"
-        service.beta.kubernetes.io/do-loadbalancer-protocol: http
-        service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
+        # service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+        # service.beta.kubernetes.io/do-loadbalancer-http-ports: "80"
+        # service.beta.kubernetes.io/do-loadbalancer-protocol: http
+        # service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
     ingressRoute:
       dashboard:
         enabled: true
