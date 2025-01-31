@@ -5,3 +5,15 @@ metadata:
   name: traefik
 spec:
   controllerName: traefik.io/gateway-controller
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: gateway
+  namespace: traefik
+spec:
+  gatewayClassName: traefik
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
