@@ -9,3 +9,8 @@ variable "region" {
   description = "DigitalOcean region"
   default     = "nyc3"
 }
+
+variable "github_repository" {
+  type        = string
+  description = "GitHub repository"
+}
