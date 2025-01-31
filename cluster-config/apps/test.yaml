@@ -35,6 +35,7 @@ metadata:
 spec:
   parentRefs:
     - name: gateway
+      namespace: traefik
   hostnames:
     - "k8s-info.cotyhamilton.com"
   rules:
