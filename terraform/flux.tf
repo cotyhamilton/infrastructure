@@ -14,7 +14,7 @@ resource "github_repository_deploy_key" "flux" {
   read_only  = "false"
 }
 
-resource "flux_bootstrap_git" "this" {
+resource "flux_bootstrap_git" "flux" {
   depends_on = [github_repository_deploy_key.flux]
 
   embedded_manifests = true
