@@ -47,3 +47,36 @@ spec:
           secretKeyRef:
             name: do-token
             key: DO_TOKEN
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: external-dns-gateway-api
+rules:
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["get", "watch", "list"]
+  - apiGroups: ["gateway.networking.k8s.io"]
+    resources:
+      [
+        "gateways",
+        "httproutes",
+        "grpcroutes",
+        "tlsroutes",
+        "tcproutes",
+        "udproutes",
+      ]
+    verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: external-dns-gateway-api
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: external-dns-gateway-api
+subjects:
+  - kind: ServiceAccount
+    name: external-dns
+    namespace: external-dns
