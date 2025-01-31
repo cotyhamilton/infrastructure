@@ -30,14 +30,6 @@ resource "digitalocean_record" "cotyhamilton_www" {
   ttl    = 60
 }
 
-resource "digitalocean_record" "wildcard" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "A"
-  name   = "*"
-  ttl    = 60
-  value  = "159.89.241.143" # ip address of cluster ingress controller lb
-}
-
 resource "digitalocean_record" "cotyhamilton_ip" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "CNAME"
