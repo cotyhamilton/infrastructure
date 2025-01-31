@@ -56,3 +56,6 @@ spec:
         enabled: true
     gateway:
       enabled: false
+    logs:
+      access:
+        enabled: true
