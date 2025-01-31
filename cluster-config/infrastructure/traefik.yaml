@@ -49,6 +49,8 @@ spec:
     ingressRoute:
       dashboard:
         enabled: true
+        entrypoints:
+          - web
     providers:
       kubernetesGateway:
         enabled: true
