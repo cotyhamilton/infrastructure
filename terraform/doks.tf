@@ -32,5 +32,12 @@ resource "digitalocean_project_resources" "cluster" {
 }
 
 output "cluster" {
+  value = {
+    status = digitalocean_kubernetes_cluster.cluster.status
+    nodes  = digitalocean_kubernetes_cluster.cluster.node_pool[0].actual_node_count
+  }
+}
+
+output "connect" {
   value = "doctl kubernetes cluster kubeconfig save ${digitalocean_kubernetes_cluster.cluster.id}"
 }
