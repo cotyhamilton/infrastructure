@@ -30,11 +30,19 @@ resource "digitalocean_record" "cotyhamilton_www" {
   ttl    = 60
 }
 
+resource "digitalocean_record" "wildcard" {
+  domain = digitalocean_domain.cotyhamilton.id
+  type   = "A"
+  name   = "*"
+  ttl    = 60
+  value  = "159.89.241.143" # ip address of cluster ingress controller lb
+}
+
 resource "digitalocean_record" "cotyhamilton_ip" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "CNAME"
-  name   = "_acme-challenge.ip"
-  value  = "8a170e024a51874bec1742f1._acme.deno.dev."
+  name  = "_acme-challenge.ip"
+  value   = "4c8059995a87935a94c0b532._acme.deno.dev."
   ttl    = 60
 }
 
@@ -50,6 +58,30 @@ resource "digitalocean_record" "cotyhamilton_ip_aaaa" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "AAAA"
   name   = "ip"
+  value  = "2600:1901:0:6d85::"
+  ttl    = 60
+}
+
+resource "digitalocean_record" "cotyhamilton_notes" {
+  domain = digitalocean_domain.cotyhamilton.id
+  type   = "CNAME"
+  name  = "_acme-challenge.notes"
+  value   = "723aada2078ce3cf5d72b9f9._acme.deno.dev."
+  ttl    = 60
+}
+
+resource "digitalocean_record" "cotyhamilton_notes_a" {
+  domain = digitalocean_domain.cotyhamilton.id
+  type   = "A"
+  name   = "notes"
+  value  = "34.120.54.55"
+  ttl    = 60
+}
+
+resource "digitalocean_record" "cotyhamilton_notes_aaaa" {
+  domain = digitalocean_domain.cotyhamilton.id
+  type   = "AAAA"
+  name   = "notes"
   value  = "2600:1901:0:6d85::"
   ttl    = 60
 }

@@ -1,10 +1,4 @@
 terraform {
-  cloud {
-    organization = "cotyhamilton"
-    workspaces {
-      name = "cotyhamilton"
-    }
-  }
   required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
