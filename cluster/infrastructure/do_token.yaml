@@ -3,8 +3,8 @@ data:
     DO_TOKEN: ENC[AES256_GCM,data:nDhyrYSPHTD0IJkvaq5ZKaUIZKRzqetiq1XLlMJf9xFUxj0R5XsDFdT+2aKaf0BTt5b2GXzJpjP6XlACgNdXiySdP2n3SChI5uVe3acIn6Z3eUJonhphDxqHso8XJT/s,iv:zdX4amGBlJJwAAapgVZ4+9xSopMkGuHh4ifYK2HKBI4=,tag:d4xpWCLocuZPIIrj49stwg==,type:str]
 kind: Secret
 metadata:
-    creationTimestamp: null
     name: DO_TOKEN
+    namespace: external-dns
 sops:
     kms: []
     gcp_kms: []
