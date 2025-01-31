@@ -45,5 +45,5 @@ spec:
       - name: DO_TOKEN
         valueFrom:
           secretKeyRef:
-            name: DO_TOKEN
+            name: do-token
             key: DO_TOKEN
