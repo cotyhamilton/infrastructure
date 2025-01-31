@@ -46,9 +46,17 @@ spec:
         service.beta.kubernetes.io/do-loadbalancer-http-ports: "80"
         service.beta.kubernetes.io/do-loadbalancer-protocol: http
         service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
-    ports:
-      websecure:
-        targetPort: web
+    # ports:
+    #   websecure:
+    #     targetPort: web
     providers:
       kubernetesGateway:
         enabled: true
+    gateway:
+      listeners:
+        - name: http
+          protocol: HTTP
+          port: 8000
+          allowedRoutes:
+            namespaces:
+              from: All
