@@ -49,3 +49,5 @@ spec:
     ports:
       websecure:
         targetPort: web
+    providers:
+      kubernetesGateway: {}
