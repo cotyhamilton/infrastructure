@@ -50,4 +50,5 @@ spec:
       websecure:
         targetPort: web
     providers:
-      kubernetesGateway: {}
+      kubernetesGateway:
+        enabled: true
