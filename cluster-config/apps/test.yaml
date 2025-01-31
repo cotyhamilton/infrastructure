@@ -41,4 +41,5 @@ spec:
   rules:
     - backendRefs:
         - name: k8s-info
+          namespace: k8s-info
           port: 8000
