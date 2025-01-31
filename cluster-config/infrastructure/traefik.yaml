@@ -39,7 +39,7 @@ spec:
   values:
     service:
       annotations:
-        service.beta.kubernetes.io/do-loadbalancer-certificate-id: cotyhamilton.com
+        service.beta.kubernetes.io/do-loadbalancer-certificate-name: cotyhamilton.com
         service.beta.kubernetes.io/do-loadbalancer-http-ports: "80"
         service.beta.kubernetes.io/do-loadbalancer-protocol: http
         service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
