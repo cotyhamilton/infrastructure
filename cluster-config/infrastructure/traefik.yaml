@@ -53,10 +53,4 @@ spec:
       kubernetesGateway:
         enabled: true
     gateway:
-      listeners:
-        - name: http
-          protocol: HTTP
-          port: 8000
-          allowedRoutes:
-            namespaces:
-              from: All
+      enabled: false
