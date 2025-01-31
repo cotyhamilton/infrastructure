@@ -47,10 +47,6 @@ spec:
             key: DO_TOKEN
     extraArgs:
       - --source=gateway-httproute
-      - --source=gateway-grpcroute
-      - --source=gateway-tlsroute
-      - --source=gateway-tcproute
-      - --source=gateway-udproute
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
