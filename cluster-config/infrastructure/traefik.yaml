@@ -46,8 +46,9 @@ spec:
         service.beta.kubernetes.io/do-loadbalancer-http-ports: "80"
         service.beta.kubernetes.io/do-loadbalancer-protocol: http
         service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
-    api:
-      dashboard: true
+    ingressRoute:
+      dashboard:
+        enabled: true
     providers:
       kubernetesGateway:
         enabled: true
