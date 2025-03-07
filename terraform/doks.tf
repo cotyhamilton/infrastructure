@@ -11,8 +11,9 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   region        = var.region
   auto_upgrade  = true
   surge_upgrade = true
-  version       = data.digitalocean_kubernetes_versions.cluster.latest_version
-  tags          = [digitalocean_tag.cluster.name]
+  version       = "1.30.9-do.0"
+  # version       = data.digitalocean_kubernetes_versions.cluster.latest_version
+  tags = [digitalocean_tag.cluster.name]
 
   maintenance_policy {
     start_time = "04:00"
@@ -23,6 +24,7 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
     name       = "default"
     size       = "s-2vcpu-4gb"
     node_count = 1
+    tags       = [digitalocean_tag.cluster.name]
   }
 }
 
