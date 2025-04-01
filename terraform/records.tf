@@ -133,3 +133,27 @@ resource "digitalocean_record" "tiffanyygale_www" {
   value  = "cotyhamilton.github.io."
   ttl    = 60
 }
+
+resource "digitalocean_record" "tiffanyygale_hk" {
+  domain = digitalocean_domain.tiffanyygale.id
+  type   = "CNAME"
+  name   = "_acme-challenge.hellokitty"
+  value  = "52839fad7cbce3af66a7e14d._acme.deno.dev."
+  ttl    = 60
+}
+
+resource "digitalocean_record" "tiffanyygale_hk_a" {
+  domain = digitalocean_domain.tiffanyygale.id
+  type   = "A"
+  name   = "hellokitty"
+  value  = "34.120.54.55"
+  ttl    = 60
+}
+
+resource "digitalocean_record" "tiffanyygale_hk_aaaa" {
+  domain = digitalocean_domain.tiffanyygale.id
+  type   = "AAAA"
+  name   = "hellokitty"
+  value  = "2600:1901:0:6d85::"
+  ttl    = 60
+}
