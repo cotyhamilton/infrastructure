@@ -25,6 +25,12 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
     node_count = 1
     tags       = [digitalocean_tag.cluster.name]
   }
+
+  lifecycle {
+    ignore_changes = [
+      version,
+    ]
+  }
 }
 
 resource "digitalocean_project_resources" "cluster" {

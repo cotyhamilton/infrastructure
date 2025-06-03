@@ -34,23 +34,15 @@ resource "digitalocean_record" "cotyhamilton_ip" {
   domain = digitalocean_domain.cotyhamilton.id
   type   = "CNAME"
   name   = "_acme-challenge.ip"
-  value  = "4c8059995a87935a94c0b532._acme.deno.dev."
+  value  = "db55e6dde3ec0454411d7b543537362a._acme.deno.net."
   ttl    = 60
 }
 
-resource "digitalocean_record" "cotyhamilton_ip_a" {
+resource "digitalocean_record" "cotyhamilton_ip_cname" {
   domain = digitalocean_domain.cotyhamilton.id
-  type   = "A"
+  type   = "CNAME"
   name   = "ip"
-  value  = "34.120.54.55"
-  ttl    = 60
-}
-
-resource "digitalocean_record" "cotyhamilton_ip_aaaa" {
-  domain = digitalocean_domain.cotyhamilton.id
-  type   = "AAAA"
-  name   = "ip"
-  value  = "2600:1901:0:6d85::"
+  value  = "alias.deno.net."
   ttl    = 60
 }
 
